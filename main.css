@@ -1,0 +1,430 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+  /* colors */
+  /* primary */
+  --bg-img: url(images/bg-desktop-light.jpg);
+  --theme-switcher-bg: url(../images/icon-moon.svg);
+  --Bright-Blue: 220, 98%, 61%;
+  --clr-white: 0, 0%, 98%;
+  --clr-black: 235, 21%, 11%;
+  --Check-Background: linear-gradient(
+    45deg,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+
+  /* neutral */
+  --clr-main-bg: 0, 0%, 98%;
+  --clr-sup-bg: 0, 0%, 98%;
+  --clr-main-text-extra: 235, 21%, 11%;
+  --clr-main-text: 235, 24%, 19%;
+
+  --clr-sup-main-text: 236, 9%, 61%;
+  --clr-sup-text-extra: 233, 11%, 84%;
+
+  /* typography */
+  /* font-size */
+  --fs-500: 2rem;
+  --fs-400: 1rem;
+  --fs-300: 0.9375rem;
+  --fs-200: 0.875rem;
+
+  /* font-family */
+  --fm-josefin-sans: "Josefin Sans", sans-serif;
+
+  /* font-weight */
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  /* border */
+  --b-rad: 4px;
+  /* spacing */
+  --p-standered: 0.75rem;
+}
+
+:root:has(.dark-theme) {
+  --bg-img: url(images/bg-desktop-dark.jpg);
+  --theme-switcher-bg: url(../images/icon-sun.svg);
+  --clr-main-bg: 235, 21%, 11%;
+  --clr-sup-bg: 235, 24%, 19%;
+  --clr-main-text-extra: 0, 0%, 98%;
+  --clr-main-text: 236, 33%, 92%;
+
+  --clr-sup-main-text: 234, 11%, 52%;
+  --clr-sup-text-extra: 233, 14%, 35%;
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+/* reset list style */
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+}
+
+/* set up the body */
+body {
+  background-image: var(--bg-img);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-color: var(--clr-main-bg);
+  font-size: 18px;
+  font-weight: var(--fw-regular);
+  font-family: var(--fm-josefin-sans);
+  line-height: 1.5;
+  min-height: 100vh;
+  background-color: hsl(var(--clr-main-bg));
+}
+
+/* make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+.flex {
+  display: flex;
+  gap: var(--gap, 0);
+}
+
+.border-rad {
+  border-radius: var(--b-rad);
+}
+
+.upper-case {
+  text-transform: uppercase;
+}
+
+.pointer-g > * {
+  cursor: pointer;
+  color: hsl(var(--clr-main-text-extra));
+}
+
+/* typography */
+/* text-color */
+.clr-white {
+  color: hsl(var(--clr-white));
+}
+
+.bg-main-clr {
+  background-color: hsl(var(--clr-main-bg));
+}
+
+.bg-sup-clr {
+  background-color: hsl(var(--clr-sup-bg));
+}
+
+.clr-main-text-extra {
+  color: hsl(var(--clr-main-text-extra));
+}
+
+.clr-main-text {
+  color: hsl(var(--clr-main-text));
+}
+.clr-sup-text {
+  color: hsl(var(--clr-sup-main-text));
+}
+
+/* font-weight */
+
+.bold {
+  font-weight: var(--fw-bold);
+}
+
+/* spacing */
+
+.letter-spacing-1 {
+  letter-spacing: 4.75px;
+}
+
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+
+.letter-spacing-3 {
+  letter-spacing: 2.35px;
+}
+
+.fs-500 {
+  font-size: var(--fs-500);
+}
+
+.fs-400 {
+  font-size: var(--fs-400);
+}
+
+.fs-300 {
+  font-size: var(--fs-300);
+}
+
+.fs-200 {
+  font-size: var(--fs-200);
+}
+
+/* ------------------- */
+/* Compontents         */
+/* ------------------- */
+
+/* input-field */
+
+.form-bar {
+  background-color: transparent;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: hsl(var(--clr-sup-main-text));
+}
+
+.form-bar input {
+  background-color: hsl(var(--clr-sup-bg));
+  color: hsl(var(--clr-sup-main-text));
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  width: 80%;
+  margin-right: 10px;
+}
+
+.form-bar button {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: hsl(220, 60%, 40%);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* task-element */
+
+.task {
+  --gap: 0;
+  border-bottom: 1px solid hsla(var(--clr-black), 0.25);
+  padding: var(--p-standered);
+  flex-flow: row nowrap;
+  align-items: center;
+  position: relative;
+}
+
+.task p {
+  padding-right: 2rem;
+}
+
+.check-icon {
+  cursor: pointer;
+  display: block;
+  margin-right: 1rem;
+  position: relative;
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid hsl(192, 100%, 50%); /* Border color */
+  overflow: hidden;
+}
+
+.task:hover .del-icon,
+.task:focus .del-icon {
+  background-image: url(images/icon-cross.svg);
+  cursor: pointer;
+  height: 18px;
+  aspect-ratio: 1;
+  position: absolute;
+  right: 1rem;
+}
+
+.task:hover .check-icon,
+.task:focus .check-icon {
+  background-image: url(images/icon-check.svg);
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: hsl(var(--Bright-Blue));
+}
+
+.done .check-icon {
+  background-image: url(images/icon-check.svg);
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: hsl(var(--Bright-Blue));
+  border: none;
+}
+
+.done p {
+  text-decoration: line-through;
+  color: hsl(var(--clr-sup-text-extra));
+}
+.main-show {
+  --gap: 3rem;
+  padding: var(--p-standered);
+  min-width: 300px;
+  flex-flow: column nowrap;
+  width: 500px;
+  margin: auto;
+}
+
+.tasks-show {
+  border-radius: var(--b-rad);
+  box-shadow: 5px 0px 50px 5px hsla(var(--clr-black), 0.25);
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh; /* Adjust the height as needed */
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 3rem;
+}
+
+@media (max-width: 786px) {
+  header {
+    padding: 2rem;
+  }
+}
+
+.theme-switcher {
+  background-color: transparent;
+  background-image: var(--theme-switcher-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  height: 2rem;
+  aspect-ratio: 1;
+}
+
+.theme-switcher:hover,
+.theme-switcher:focus {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+ul {
+  padding: 0;
+}
+
+.tasks-ul {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.interactive-g > *:hover {
+  cursor: pointer;
+  color: hsl(var(--clr-main-text));
+}
+
+.active {
+  color: hsl(var(--Bright-Blue));
+}
+.interactive:hover,
+.interactive:focus {
+  cursor: pointer;
+  color: hsl(var(--clr-main-text-extra));
+}
+
+.interactive .active {
+  color: hsl(var(--Bright-Blue));
+}
+
+.footer {
+  padding: var(--p-standered);
+  color: hsl(var(--clr-sup-main-text));
+  position: sticky;
+  bottom: 0;
+  background: hsl(
+    var(--clr-sup-bg)
+  ); /* Same as the task container background */
+  z-index: 10;
+}
+
+.filter {
+  --gap: 0.75rem;
+  place-items: center;
+}
+
+.footer .flex {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer .flex:first-child,
+.footer .flex:last-child {
+  font-size: var(--fs-200);
+}

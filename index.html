@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <script defer src="main.js"></script>
+    <title>Todo</title>
+  </head>
+  <body>
+    <div class="main-show flex" id="main">
+      <header>
+        <h1 class="head clr-white upper-case bold">todo</h1>
+        <button class="theme-switcher dark" id="theme-switch"></button>
+      </header>
+      <div class="form-bar">
+        <input id="task-input" type="text" placeholder="Create a new todo..." />
+        <button id="add-btn">Add</button>
+      </div>
+      <div class="tasks-show bg-sup-clr border-rad clr-main-text">
+        <ul id="tasks-show" class="tasks-ul pointer-g">
+          <!-- <li class="task flex done">
+            <button class="check-icon" id="check-btn"></button>
+            <p>this is test li element.</p>
+            <button class="del-icon" id="del-btn"></button>
+          </li>
+          <li class="task flex">
+            <button class="check-icon"></button>
+            <p>this is test li element.</p>
+            <button class="del-icon"></button>
+          </li>
+          <li class="task flex">
+            <button class="check-icon"></button>
+            <p>this is test li element.</p>
+            <button class="del-icon"></button>
+          </li>
+          <li class="task flex">
+            <button class="check-icon"></button>
+            <p>this is test li element.</p>
+            <button class="del-icon"></button>
+          </li> -->
+        </ul>
+        <ul class="footer">
+          <div class="flex fs-400">
+            <div id="remain-items"></div>
+            <div class="interactive-g flex filter fs-400">
+              <button id="show-active-btn">Active</button>
+              <button id="show-all-btn">All</button>
+              <button id="show-completed-btn">Completed</button>
+            </div>
+            <button id="clear-btn" class="interactive clr-sup-text">
+              Clear completed
+            </button>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
